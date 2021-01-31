@@ -10,7 +10,8 @@ class ClientsController < ApplicationController
             session[:client_id] = @clients.id
             redirect "/clients/#{@clients.id}"
         else
-            erb "/"
+            flash[:notice] = "You must register"
+            redirect "/"
         end
     end
     
@@ -34,13 +35,14 @@ class ClientsController < ApplicationController
     
     get "/clients/:id" do
         @clients = Client.find_by(id: params[:id])
+        flash[:notice] = "Log in successful."
         erb :"/clients/index.html"
     end
-    
-  # GET: /clients/new
-#   get "/clients/new" do
-#     erb :"/clients/new.html"
-#   end
+
+    get "/clients/:id/account" do
+        # @clients = Client.find_by(id: params[:id])
+        erb :"/clients/show.html"
+    end
 
   # POST: /clients
 

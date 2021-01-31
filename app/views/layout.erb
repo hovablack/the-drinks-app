@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <div class="container-fluid">
+    <div class="container">
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,10 +9,12 @@
         </head>
         <body>
             <div class="wrapper">
-                <%= yield %>
-            <footer class="branding">
-                <small>Copyright &copy; 2021 AwesomeBar, Inc. All rights reserved</small>
-            </footer>
+                <div class="container">
+                    <%= yield %>
+                    <footer class="branding">
+                        <small>Copyright &copy; 2021 AwesomeBar, Inc. All rights reserved</small>
+                    </footer>
+                </div>
             </div>
             <script src="/js/bootstrap.bundle.js"></script>
         </body>
