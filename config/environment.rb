@@ -14,5 +14,7 @@ database_config = {
 
 set :database, database_config
 
+require 'sinatra/flash'
+
 require './app/controllers/application_controller'
 require_all 'app'

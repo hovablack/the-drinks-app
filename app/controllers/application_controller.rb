@@ -1,5 +1,6 @@
 class ApplicationController < Sinatra::Base
     register Sinatra::ActiveRecordExtension
+    register Sinatra::Flash
 
     configure do
         enable :sessions
@@ -25,6 +26,13 @@ class ApplicationController < Sinatra::Base
 
         def current_client
             @current_client ||= Client.find_by(id: session[:client_id]) if session[:client_id]
+        end
+
+        def authentication_required
+            if !logged_in?
+                flash[:notice] = "You must be logged in."
+                redirect '/'
+            end
         end
     end
 

@@ -1,15 +1,9 @@
 class ClientsController < ApplicationController
 
-
-    get "/clients/:id" do
-        @clients = Client.find_by(id: params[:id])
-        erb :"/clients/index.html"
-    end
-
     get "/register" do
         erb :"/clients/new.html"
     end
-
+    
     post "/clients" do
         if params[:username] && params[:email] && params[:password] != ""
             @clients = Client.create(params)
@@ -19,11 +13,11 @@ class ClientsController < ApplicationController
             erb "/"
         end
     end
-
+    
     get '/login' do
         erb :"/clients/login.html"
     end
-
+    
     post '/login' do
         @clients = Client.find_by(username: params[:username])
         if @clients && @clients.authenticate(params[:password])
@@ -34,7 +28,15 @@ class ClientsController < ApplicationController
         end
     end
 
-
+    before '/clients/*' do
+        authentication_required
+    end
+    
+    get "/clients/:id" do
+        @clients = Client.find_by(id: params[:id])
+        erb :"/clients/index.html"
+    end
+    
   # GET: /clients/new
 #   get "/clients/new" do
 #     erb :"/clients/new.html"
