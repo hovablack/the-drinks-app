@@ -13,4 +13,19 @@ class ApplicationController < Sinatra::Base
         erb :welcome
     end
 
+    get '/logout' do
+        session.clear
+        redirect'/'
+    end
+
+    helpers do
+        def logged_in?
+            !!current_client
+        end
+
+        def current_client
+            @current_client ||= Client.find_by(id: session[:client_id]) if session[:client_id]
+        end
+    end
+
 end

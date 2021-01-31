@@ -4,5 +4,5 @@ raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.' if A
 
 use Rack::MethodOverride
 
-run ApplicationController
 use ClientsController
+run ApplicationController
