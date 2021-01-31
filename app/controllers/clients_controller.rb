@@ -1,6 +1,11 @@
 class ClientsController < ApplicationController
 
 
+    get "/clients" do
+        binding.pry
+        erb :"/clients/index.html"
+    end
+
     get "/register" do
         erb :"/clients/new.html"
     end
@@ -8,14 +13,10 @@ class ClientsController < ApplicationController
     post "/clients" do
         if params[:username] && params[:email] && params[:password] != ""
             @clients = Client.create(params)
-            redirect "/clients/login.html"
+            session[:client_id] = @clients.id
         else
-            erb :"/clients/new.html"
+            erb "/"
         end
-    end
-
-    get "/clients/:id" do
-        erb :"/clients/show.html"
     end
 
     get '/login' do
@@ -25,9 +26,11 @@ class ClientsController < ApplicationController
     post '/login' do
         @clients = Client.find_by(username: params[:username])
         if @clients && @clients.authenticate(params[:password])
-            redirect "/clients/index.html"
+            # binding.pry
+            session[:client_id] = @clients.id
+            redirect "/clients"
         else
-            erb :"/clients/login.html"
+            redirect "/"
         end
     end
 
