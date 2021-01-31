@@ -6,3 +6,4 @@ use Rack::MethodOverride
 
 use ClientsController
 run ApplicationController
+use DrinksController
