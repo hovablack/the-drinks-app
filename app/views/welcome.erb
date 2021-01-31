@@ -1,24 +1,31 @@
-<div class="container">
-  <header>
-  </header>
-  <div>
-    <h2>Total Drinks Web Application</h2>
+<div class="container-fluid">
+    <header>
+        <h2>Total Drinks Web Application</h2>
+        <nav>
+            <a href="/about">About</a> 
+         </nav>
+    </header>
+    <div>
+
 
     <div class="content">
-      <p>Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-      as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-      your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
+      <p>Welcome to the Total Drinks App! A brand new product from the AwesomeBar Corporation in 
+      association with Thirsty Media. To get started, <a href="/register">Register</a> or <a href="/login">Log In</a> and begin adding drinks to
+      your order. For more information, see what we are <a href="/about">About</a>.</p>
     </div>
 
-    <div class="sidebar">
-      <h4>Sponsors</h4>
-      <ul>
-        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
-        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
-        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
-        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
-      </ul>
+    <div class="fixed-bottom">
+        <h4>Sponsors</h4>
+        <p>
+            <a href="#" class="badge badge-primary">Nautic Dye</a>
+            <a href="#" class="badge badge-primary">Break Bendy</a>
+            <a href="#" class="badge badge-primary">The Cantina</a>
+            <a href="#" class="badge badge-primary">Port Sweat</a>
+        
+            <li><a href="/sponsors/ndabout">Nautic Dye</a></li>
+            <li><a href="/sponsors/bbabout">Break Bend</a></li>
+            <li><a href="/sponsors/tcabout">The Cantina</a></li>
+            <li><a href="/sponsors/psabout">Port Sweat</a></li>
+        </p>
     </div>
-
-  </div>
 </div>
