@@ -1,8 +1,8 @@
-<h3>Welcome, <%= @clients.username %>, <%= session[:client_id] %>.</h3>
+<h2>Welcome, <%= @clients.username %>.</h2> <h6><%= session[:client_id] %>.</h6>
 
-<ul class="nav nav-pills nav-fill">
+<%# <ul class="nav nav-pills nav-fill">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">New Drink</a>
+    <a class="nav-link" href="/drinks/new">New Drink</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Drink Orders</a>
@@ -13,5 +13,5 @@
   <li class="nav-item">
     <a class="nav-link" href="/logout" tabindex="-1" aria-disabled="true">Logout</a>
   </li>
-</ul>
+</ul> %>
 

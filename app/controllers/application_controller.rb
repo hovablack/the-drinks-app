@@ -13,7 +13,11 @@ class ApplicationController < Sinatra::Base
     end
 
     get "/" do
-        erb :welcome
+        if logged_in?
+            redirect "/clients/#{current_client.id}"
+        else
+            erb :welcome
+        end
     end
 
     get '/logout' do

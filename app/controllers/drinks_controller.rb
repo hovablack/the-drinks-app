@@ -1,4 +1,30 @@
 class DrinksController < ApplicationController
+    before '/drinks/*' do
+        authentication_required
+    end
+
+    get "/drinks/new" do
+        erb :"/drinks/new.html"
+    end
+
+    post '/drinks' do
+        @drinks = Drink.build(params)
+        @drinks.client = current_client
+        redirect "/drinks/#{@drinks.id}/edit"
+    end
+
+    get "/drinks/:id/edit" do
+        erb :"/drinks/edit.html"
+    end
+
+    get '/alldrinks' do
+        @drinks = Drink.all
+
+        erb :"/drinks/show.html"
+    end
+
+
+
 
   # GET: /drinks
   get "/drinks" do
@@ -6,9 +32,6 @@ class DrinksController < ApplicationController
   end
 
   # GET: /drinks/new
-  get "/drinks/new" do
-    erb :"/drinks/new.html"
-  end
 
   # POST: /drinks
   post "/drinks" do
@@ -21,9 +44,6 @@ class DrinksController < ApplicationController
   end
 
   # GET: /drinks/5/edit
-  get "/drinks/:id/edit" do
-    erb :"/drinks/edit.html"
-  end
 
   # PATCH: /drinks/5
   patch "/drinks/:id" do
