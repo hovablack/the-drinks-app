@@ -1,1 +1,22 @@
 <h1>Insert the form to edit an instance of your model here.</h1>
+<h2>Edit your order</h2>
+
+<form action="/drinks/<%= @drinks.id %>" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="patch">
+    <div class="form-group">
+        <label for="name">Drink name</label>
+        <input type="text" class="form-control" id="name" name="name" value="<%= @drinks.name %>">
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="text" class="form-control" id="quantity" name="quantity" value="<%= @drinks.quantity %>">
+    </div>
+        <div class="form-group">
+        <label for="category">Category</label>
+        <select class="form-control" id="category" name="category">
+        <option>Alcoholic</option>
+        <option>Non-Alcoholic</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-outline-secondary">Confirm</button>
+</form>

@@ -13,8 +13,11 @@
                     <% if logged_in? %>
                     Logged in as: Client <%= rand(1...999999) %> |
                         <a class="nav-link" href="/drinks/new">New Drink</a> |
-                        <a class="nav-link" href="/"><%= current_client.username %></a> |
+                        <%# <a class="nav-link" href="/drinks/<%= @drinks.id %>">Recent Drinks</a> | %>
+                        <a class="nav-link" href="/drinks">My Drinks</a> |
+                        <a class="nav-link" href="/clients/<%= current_client.id %>"><%= current_client.username %></a> |
                         <a class="nav-link" href="/clients/:id/account">Settings</a> |
+                        <a class="nav-link" href="/">Home</a> |
                         <a class="nav-link" href="/logout">Logout</a>
                     <% else %>
                         <a class="nav-link" href="/">Home</a> |

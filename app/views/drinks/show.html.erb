@@ -1,1 +1,13 @@
 <h1>This is the show page for an individual instance of your model.</h1>
+
+
+<h4><p class="text-md-start" ><%= @drinks.name %></p></h4>
+<div class="card">
+  <h5 class="card-header"><%= @drinks.name %></h5>
+  <div class="card-body">
+    <h5 class="card-title"><%= @drinks.category %></h5>
+    <p class="card-text">Number of Drink(s): <%= @drinks.quantity %></p>
+    <a href="/drinks/<%= @drinks.id %>/edit" class="btn btn-primary">Edit</a>
+    <a href="/drinks/<%= @drinks.id %>/delete" class="btn btn-primary">Delete</a>
+  </div>
+</div>
