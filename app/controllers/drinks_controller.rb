@@ -1,5 +1,5 @@
 class DrinksController < ApplicationController
-    before '/drinks/*' do
+    before '/drinks*' do
         authentication_required
     end
     
@@ -34,7 +34,8 @@ class DrinksController < ApplicationController
 
     patch "/drinks/:id" do
         drink_search
-        "Hello World"
+        @drinks.update(name: params[:name], quantity: params[:quantity], category: params[:category])
+        redirect "/drinks/#{@drinks.id}"
     end
 
 

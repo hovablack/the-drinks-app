@@ -2,7 +2,7 @@
 
 <ul>
     <% @drinks.each do |drink| %>
-        <li><%= drink.name %></li>
+        <li><a href="/drinks/<%= drink.id%>"><%= drink.name %></a></li>
     <% end %>
 </ul>
 

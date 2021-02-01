@@ -28,11 +28,6 @@ class ClientsController < ApplicationController
             redirect "/"
         end
     end
-
-    before '/clients/*' do
-        authentication_required
-    end
-
     
     get "/clients/:id" do
         @clients = Client.find_by(id: params[:id])
