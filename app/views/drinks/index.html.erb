@@ -1,1 +1,7 @@
 <h1>This is the Model's index page.</h1>
+
+<ul>
+    <% @drinks.each do |drink| %>
+        <li><%= drink.name %></li>
+    <% end %>
+</ul>

@@ -2,15 +2,23 @@ class DrinksController < ApplicationController
     before '/drinks/*' do
         authentication_required
     end
+    
+    get "/drinks" do
+        @drinks = current_client.drinks
+        erb :"/drinks/index.html"
+    end
 
     get "/drinks/new" do
         erb :"/drinks/new.html"
     end
 
     post '/drinks' do
-        @drinks = Drink.build(params)
-        @drinks.client = current_client
-        redirect "/drinks/#{@drinks.id}/edit"
+        if params[:name] && params[:quantity] != ""
+            @drinks = Drink.create(name: params[:name], quantity: params[:quantity], category: params[:category], client_id: current_client.id)
+            redirect '/drinks'
+        else
+            redirect '/drinks/new'
+        end
     end
 
     get "/drinks/:id/edit" do
@@ -27,9 +35,6 @@ class DrinksController < ApplicationController
 
 
   # GET: /drinks
-  get "/drinks" do
-    erb :"/drinks/index.html"
-  end
 
   # GET: /drinks/new
 
