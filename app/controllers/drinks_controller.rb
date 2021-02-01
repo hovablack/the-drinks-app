@@ -38,6 +38,11 @@ class DrinksController < ApplicationController
         redirect "/drinks/#{@drinks.id}"
     end
 
+    delete "/drinks/:id" do
+        drink_search
+        @drinks.destroy
+        redirect "/drinks"
+    end
 
 
     private
@@ -51,9 +56,6 @@ class DrinksController < ApplicationController
 
 
 
-    # delete "/drinks/:id/delete" do
-    #     redirect "/drinks"
-    # end
 #   # GET: /drinks/5
 #   get "/drinks/:id" do
 #     erb :"/drinks/show.html"
